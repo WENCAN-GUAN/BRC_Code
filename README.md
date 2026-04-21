@@ -107,6 +107,17 @@ BRC_Code/
   train.py        # training script with argparse
   requirements.txt
 ```
+## Datasets
+
+All datasets are publicly available. The training script downloads them automatically via scikit-learn.
+
+| Dataset | Samples | Features | Target | Source |
+|---------|---------|----------|--------|--------|
+| Energy Efficiency | 768 | 8 | Heating load | [UCI ML Repository](https://archive.ics.uci.edu/dataset/242/energy+efficiency) |
+| California Housing | 20,640 | 8 | Median house value | [StatLib / sklearn](https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset) |
+| Power Plant | 9,568 | 4 | Net hourly electrical energy output | [UCI ML Repository](https://archive.ics.uci.edu/dataset/294/combined+cycle+power+plant) |
+| Student Performance | 395 | 15 | Final grade (G3) | [UCI ML Repository](https://archive.ics.uci.edu/dataset/320/student+performance) |
+| Household Power | 17,520 | 7 | Global active power | [UCI ML Repository](https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption) |
 
 ## Results
 
