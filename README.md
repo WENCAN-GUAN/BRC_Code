@@ -10,34 +10,9 @@ BRC treats residual connections as stochastic regulators of uncertainty propagat
 
 ## Architecture
 
-```
-Input x
-  |
-  v
-[Linear Projection] --> H^(0)
-  |
-  v
-[Stage 1: BayesianBlock x t_1] --Beta(alpha,beta)--> H^(1)
-  |                                                    |-- sigma^2_1
-  v
-[Stage 2: BayesianBlock x t_2] --Beta(alpha,beta)--> H^(2)
-  |                                                    |-- sigma^2_2
-  v
- ...
-  |
-  v
-[Stage K: BayesianBlock x t_K] --Beta(alpha,beta)--> H^(K)
-  |                                                    |-- sigma^2_K
-  v
-[Cascade Aggregation]
-  |
-  +--> mu(x)          point prediction
-  +--> sigma^2(x)     epistemic + aleatoric uncertainty
-```
+![BRC Architecture](image.png)
 
-Each **BayesianBlock** contains:
-- Bayesian multi-head attention (variational Q/K/V + learnable RBF kernel)
-- Bayesian feed-forward network (GELU + delta-method variance propagation)
+Each cascade stage contains a **Bayesian Computation Block** (variational multi-head attention + Bayesian FFN) wrapped with Beta-distributed probabilistic residual connections. Stages iteratively refine representations until variance drops below a learned threshold, with deeper stages enforcing stricter thresholds.
 
 ## Quick Start
 
